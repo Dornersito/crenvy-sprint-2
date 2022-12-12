@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container,InputGroup,FormControl,Button,Row,Card} from 'react-bootstrap';
 import {useState,useEffect} from 'react';
 
 const CLIENT_ID="b01669ce06464e06ad1afe9c395c7c15";
@@ -39,34 +38,37 @@ export default function Publicacion({setSongs}){
         .then(data=>{return data.artists.items[0].id && data.tracks})
         
         setSongs(artistID.items);
+      
 
-        //console.log(artistID.items)
       }
     
 
 
     return(
+      
+      
       <div>
-          <div className = "App">
-            <Container>
-                <InputGroup className ="mb-3" size ="lg">
-                    <FormControl
-                    placeholder= "Search by artist or song"
-                    type="input"
-                    onKeyPress={event => {
-                    if(event.key ==="Enter"){
-                        search();
-                    }
-                    }}
-                    onChange={event=>setSearchInput(event.target.value)}
+      <div className="App">
+          <div className='main-wrapper'>
+              <div className='form-wrapper'>
+                  <form action=''>
+                      <div className='form-group'>
+                          <label htmlFor=''>ingresa tu artista</label>
+                          
+                          <input type='text' name='entryTitle'
+                          placeholder= "Search by artist"
+                          
+                    
+                          onChange={event=>setSearchInput(event.target.value)}
+                          onBlur={search}
                     />
-                    <Button onClick={search}>
-                        Crenviar
-                    </Button>
-                </InputGroup>
-            </Container>
+                    </div>
+                    </form>
+                </div>
+            </div>
         </div>
       </div>
+      
     )
 
 }
