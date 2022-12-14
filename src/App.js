@@ -7,7 +7,7 @@ import Post from './Post'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container,InputGroup,FormControl,Button,Row,Card} from 'react-bootstrap';
 import {useState,useEffect} from 'react';
-import Buscador from './Buscador';
+
 
 const CLIENT_ID="b01669ce06464e06ad1afe9c395c7c15";
 const CLIENT_SECRET="c7e50afc03dc417ca2181cf3d81664ff";
