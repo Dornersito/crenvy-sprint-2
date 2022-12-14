@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+
 
 const EntryCard = props =>{
     //console.log(props);
@@ -6,7 +6,9 @@ const EntryCard = props =>{
     const {entryTitle, content, picture, animo} = entryData; //Le pasamos los valores desde entryData
     return(
         <div className="blog-entry">
-            <img src={picture}/>
+            <a href= {picture[1]} target="_blank" rel="noreferrer">
+            <img src={picture[0]} alt=""/>
+            </a>
             <h2>{content}</h2>
             <p align="center">{entryTitle} se encuentra {animo}, mientras escucha "{content}"</p>
             <button>Like!</button>

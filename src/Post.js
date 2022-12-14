@@ -7,8 +7,8 @@ export default function Post({songs}){
     //const [title, setTitle] = useState("Crenvy");
     const [blogEntrys, setBlogEntrys] = useState([]);
     const[entry, setEntry] = useState({});
-    const[selectedSong, setSelectedSong] = useState("");
-    const[selectedImg, setSelectedImg] = useState("");
+   // const[selectedSong, setSelectedSong] = useState("");
+   // const[selectedImg, setSelectedImg] = useState("");
    // const[songs, setSongs] = useState([]);
     // console.log("xd");
     // console.log(songs);
@@ -28,11 +28,11 @@ export default function Post({songs}){
             return cancion.name === e.label;
         })
         
-        setEntry({...entry, ["content"]:e.label, ['picture']:songArray[0].album.images[0].url});
-        
+        setEntry({...entry, "content":e.label, 'picture':[songArray[0].album.images[0].url,songArray[0].external_urls.spotify]});
+        console.log(songArray[0].external_urls.spotify)
     }
     
-    
+
 
     return (
         <div>
