@@ -5,7 +5,6 @@ const CLIENT_ID="b01669ce06464e06ad1afe9c395c7c15";
 const CLIENT_SECRET="c7e50afc03dc417ca2181cf3d81664ff";
 
 export default function Publicacion({setSongs}){
-    //const [songs, setSongs] = useState([])
     const[searchInput, setSearchInput] = useState("");
     const[accessToken, setAccessToken] = useState("");
 
@@ -38,22 +37,16 @@ export default function Publicacion({setSongs}){
         .then(data=>{return data.artists.items[0].id && data.tracks})
         
         setSongs(artistID.items);
-      
-
       }
     
-
-
-    return(
-      
-      
+    return(   
       <div>
       <div className="App">
           <div className='main-wrapper'>
               <div className='form-wrapper'>
-                  <form action=''>
+                  <form action='' >
                       <div className='form-group'>
-                          <label htmlFor=''>ingresa tu artista</label>
+                          <label htmlFor=''>Ingresa tu artista</label>
                           
                           <input type='text' name='entryTitle'
                           placeholder= "Search by artist"
@@ -61,7 +54,7 @@ export default function Publicacion({setSongs}){
                     
                           onChange={event=>setSearchInput(event.target.value)}
                           onBlur={search}
-                    />
+                          />
                     </div>
                     </form>
                 </div>
