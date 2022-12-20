@@ -87,6 +87,7 @@ function App() {
     setTimeout(() => {setLoading(false);}, 3000);
   },[])
 
+  console.log(weather)
   return(
     <div>
       {loading ?
@@ -98,7 +99,7 @@ function App() {
         </div>
         ):
         (
-          <header className='App-header'>
+          <header className={weather}>
             <Navbar Iconimage={Iconimage}
               country={country} place={place} temp={temp} 
               weather={weather} dateText={dateText} hour_text={hour_text} />

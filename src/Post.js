@@ -70,16 +70,14 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                             "weather_text": weather});
         console.log(songArray[0].external_urls.spotify)
     }
-    
-
 
     return (
         <div>
             <div className="App">
                 <div className='main-wrapper'>
-                    <div className='form-wrapper'>
+                    <div className='Formulario'>
                         <form action=''>
-                            <div className='form-group'>
+                            <div className = 'form-group'>
                                 <label htmlFor=''>Ingresa tu artista</label>                
                                 <input type='text' name='entryTitle'
                                     placeholder= "Search by artist"
