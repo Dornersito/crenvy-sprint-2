@@ -105,7 +105,7 @@ function App() {
               weather={weather} dateText={dateText} hour_text={hour_text} />
             <Post songs = {songs} setSongs = {setSongs} Iconimage={Iconimage} hour_text={hour_text} weather={weather}/>
           </header>
-          
+
         )
     }
     </div>

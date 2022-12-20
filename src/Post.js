@@ -80,7 +80,7 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                             <div className = 'form-group'>
                                 <label htmlFor=''>Ingresa tu artista</label>                
                                 <input type='text' name='entryTitle'
-                                    placeholder= "Search by artist"
+                                    placeholder= ""
                                     onChange={event=>{setSearchInput(event.target.value);}}
                                     onBlur={search}
                                 />
@@ -88,7 +88,7 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
 
                             <div className='form-group'>
                                 <label htmlFor=''>¿Qué estas escuchando?</label>
-                                <Select options={songs.map(song => ({label: song.name, value: song.name}))} onChange={handlerSelect} ></Select>
+                                <Select  placeholder="" className="Select" options={songs.map(song => ({label: song.name, value: song.name}))} onChange={handlerSelect} ></Select>
                             </div>
 
                             <div className='form-group'>
@@ -108,11 +108,11 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                         </form>
                         
                     {searchInput !== "" && entry.content !== ""? (
-                        <button type='button' onClick={saveHandler} >Crenvyar</button>
+                        <button type='button' class="bn632-hover bn26" onClick={saveHandler} style={{marginTop: '20px'}}>Crenvyar</button>
                         ):
-                            <button type='button' onClick={saveHandler} disabled >Crenvyar</button>
+                        <button type='button' class="bn632-hover bn26" onClick={saveHandler} disabled style={{marginTop: '20px'}}>Crenvyar</button>
                     }
-
+                    
                     </div>
 
                     <div className='entries-wrapper'>
