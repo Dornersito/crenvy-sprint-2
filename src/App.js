@@ -40,6 +40,13 @@ function App() {
 
   let iconUrl = "";
 
+  if(hour.toString().length == 1){
+    hour = "0" + hour.toString();
+  }
+  if(minutes.toString().length == 1){
+    minutes = "0" + minutes.toString();
+  }
+
   let hour_text = `${hour}:${minutes}`;
   let days = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
   let dateText = `${days[day]} ${dayDate}/${month}`;
