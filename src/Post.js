@@ -27,6 +27,7 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
     },[])
 
     async function search(){
+        if (searchInput.trim() === '') return;
         console.log("search for "+searchInput); 
         
         var artistParameters={
@@ -55,6 +56,7 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
     }
 
     const saveHandler = () =>{ //Guarda en blogEntrys la nueva entry ingresada
+        //if (!entry.content) return;
         setBlogEntrys([...blogEntrys, entry])
     }
 
@@ -70,6 +72,7 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                             "weather_text": weather});
         console.log(songArray[0].external_urls.spotify)
     }
+    
 
     return (
         <div>
@@ -107,8 +110,8 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                             </div>
                         </form>
                         
-                    {searchInput !== "" && entry.content !== ""? (
-                        <button type='button' class="bn632-hover bn26" onClick={saveHandler} style={{marginTop: '20px'}}>Crenvyar</button>
+                    {entry.picture && entry.animo && entry.entryTitle? (
+                        <button type='button'  class="bn632-hover bn26"  onClick={saveHandler} style={{marginTop: '20px'}}>Crenvyar</button>
                         ):
                         <button type='button' class="bn632-hover bn26" onClick={saveHandler} disabled style={{marginTop: '20px'}}>Crenvyar</button>
                     }
@@ -117,11 +120,9 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
 
                     <div className='entries-wrapper'>
                     {
-                        searchInput !== "" ?
-                        (
+
                             blogEntrys.map((entry, index) => <EntryCard entryData = {entry}/>)//Mapea las entradas y devuelve entryCard, cada objeto le llamamos entry
-                        ):
-                            null
+
                     }
                     </div>
                 </div>
