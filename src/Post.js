@@ -26,9 +26,9 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
             .then(data=>setAccessToken(data.access_token))
     },[])
 
-    async function search(){
-        if (searchInput.trim() === '') return;
-        console.log("search for "+searchInput); 
+    async function search(){//funcion para buscar por artista o por la cancion
+        if (searchInput.trim() === '') return;//si es que la persona solo pone la cancion
+        console.log("search for "+searchInput); //en el selector de canciones la cancion sera la primera
         
         var artistParameters={
             method: 'GET',
@@ -37,11 +37,11 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
             'Authorization': 'Bearer '+accessToken
             }
         }
-        var artistID =await fetch('https://api.spotify.com/v1/search?q='+searchInput+'&type=track%2Cartist',artistParameters)
+        var artistID =await fetch('https://api.spotify.com/v1/search?q='+searchInput+'&type=track%2Cartist',artistParameters)//se hace la busqueda
         .then(response=> response.json())
-        .then(data=>{return data.artists.items[0].id && data.tracks})
+        .then(data=>{return data.artists.items[0].id && data.tracks})//retorna el primer item que sera el artista que se busca y sus canciones
         
-        setSongs(artistID.items);
+        setSongs(artistID.items);//setea las songs
         
     }
 
@@ -86,7 +86,7 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                                 <input type='text' name='entryTitle'
                                     placeholder= ""
                                     onChange={event=>{setSearchInput(event.target.value);}}
-                                    onBlur={search}
+                                    onBlur={search}//busca la cancion por artista cuando se deja de focusear el div, es decir cuando se cambia de div
                                 />
                             </div>
 

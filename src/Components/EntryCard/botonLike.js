@@ -26,7 +26,10 @@ export const Likes = (titulo) => {
     
     return (
         <div>
-            <button onClick={likef} className={likeactive?'active-like':null}> Like{like}</button>
+            <button onClick={likef} className={likeactive?'active-like':null} style={{backgroundColor:"#0000006f",
+            color:"white", border: "white",
+            borderRadius: "20px", borderStyle: "solid", borderWidth:"0.2px"
+            }}> Like{like}</button>
         </div>
     )
     

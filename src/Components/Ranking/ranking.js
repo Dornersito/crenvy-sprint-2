@@ -1,5 +1,5 @@
-import { useEffect, useState, React } from 'react';
-import SongRanking from './songRanking'; 
+//import { useEffect, useState, React } from 'react';
+//import SongRanking from './songRanking'; 
 
 export default function Ranking() {
     //const [songs, setSongs] = useState([]);
@@ -19,12 +19,12 @@ export default function Ranking() {
         });
     
         var rank = 1;
-        for (var i = 0; i < songs.length; i++) {
+        for (var j = 0; j < songs.length; j++) {
         // increase rank only if current likes less than previous
-            if (i > 0 && songs[i].likes < songs[i - 1].likes) {
+            if (j > 0 && songs[j].likes < songs[j - 1].likes) {
                 rank++;
             }
-            songs[i].rank = rank;
+            songs[j].rank = rank;
         }
     }
     
