@@ -1,4 +1,4 @@
-
+import { Likes } from "./botonLike";
 
 const EntryCard = props =>{
     //console.log(props);
@@ -22,7 +22,7 @@ const EntryCard = props =>{
                     <div>{weather_text}</div>
                 </li>
                 <li>
-                    <button>Like!</button>
+                    <Likes{...{content}}/>
                 </li>
             </ul>
 
