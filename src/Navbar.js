@@ -1,6 +1,6 @@
 import React from "react";
 import './App.css';
-import axios from "axios";
+
 
 import logoBanner from "./logoCrenvyBanner.png"
 import eslogan from "./eslogan2.png"
@@ -16,7 +16,7 @@ export default function Navbar({Iconimage, country, place, temp, weather, dateTe
       <ul>
         
           <div style={{marginRight:"400px", marginTop:"35px"}}>
-            <img src = {eslogan} style={{width:"100%"}} />
+            <img src = {eslogan} alt ="" style={{width:"100%"}} />
           </div>
         
         <li>

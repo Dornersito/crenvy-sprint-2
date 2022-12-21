@@ -281,7 +281,7 @@ form .form-group label{
   background-color: rgb(86, 90, 91);
   background-attachment: fixed;
   background-size: cover;
-  image-rendering: url();
+  image-rendering: uri();
   background-image: url("v1015-101a.jpg");
   min-height: 100vh;
   display: flex;

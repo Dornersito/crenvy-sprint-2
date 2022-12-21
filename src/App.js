@@ -1,26 +1,21 @@
 import logo from './logoCrenvyMenu.gif';
 import './App.css';
 import Navbar from './Navbar';
-import Publicacion from './Publicacion'
+
 import Post from './Post'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container,InputGroup,FormControl,Button,Row,Card} from 'react-bootstrap';
+
 
 import React from "react";
 import axios from "axios";
-
-
-const CLIENT_ID="b01669ce06464e06ad1afe9c395c7c15";
-const CLIENT_SECRET="c7e50afc03dc417ca2181cf3d81664ff";
 
 const API_endpoint = "https://api.openweathermap.org/data/2.5/weather?";
 const API_key = "885247edcfd01bf83861e339962c9756";
 
 
 function App() {
-  const[searchInput, setSearchInput] = React.useState("");
-  const[accessToken, setAccessToken] = React.useState("");
+
   const[loading, setLoading] = React.useState("");
   const[songs, setSongs] = React.useState([]);
 
@@ -40,10 +35,10 @@ function App() {
 
   let iconUrl = "";
 
-  if(hour.toString().length == 1){
+  if(hour.toString().length === 1){
     hour = "0" + hour.toString();
   }
-  if(minutes.toString().length == 1){
+  if(minutes.toString().length === 1){
     minutes = "0" + minutes.toString();
   }
 

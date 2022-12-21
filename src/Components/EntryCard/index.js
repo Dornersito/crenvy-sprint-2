@@ -3,7 +3,7 @@
 const EntryCard = props =>{
     //console.log(props);
     const {entryData} = props; //Toma los valores de props(obejeto con los datos)
-    const {entryTitle, content, picture, animo, weather, hour, weather_text} = entryData; //Le pasamos los valores desde entryData
+    const {entryTitle, content, picture, animo, weather, hour, weather_text,artist} = entryData; //Le pasamos los valores desde entryData
     console.log(entryData);
     return(
         <div className="blog-entry">
@@ -11,7 +11,7 @@ const EntryCard = props =>{
             <img src={picture[0]} alt=""/>
             </a>
             <h2>{content}</h2>
-            <p align="center">{entryTitle} se encuentra {animo}, mientras escucha "{content}"</p>
+            <p align="center">{entryTitle} se encuentra {animo}, mientras escucha "{content}" de {artist}</p>
 
             <ul>
                 <li >
@@ -25,7 +25,7 @@ const EntryCard = props =>{
                     <button>Like!</button>
                 </li>
             </ul>
-   
+
         </div>
     )
 }

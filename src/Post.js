@@ -3,7 +3,7 @@ import React from "react";
 import EntryCard from './Components/EntryCard';
 import Select from 'react-select'
 import {useState,useEffect} from 'react';
-import defaultImage from './logoCrenvyBanner.png';
+
 
 const CLIENT_ID="b01669ce06464e06ad1afe9c395c7c15";
 const CLIENT_SECRET="c7e50afc03dc417ca2181cf3d81664ff";
@@ -56,7 +56,7 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
     }
 
     const saveHandler = () =>{ //Guarda en blogEntrys la nueva entry ingresada
-        //if (!entry.content) return;
+        
         setBlogEntrys([...blogEntrys, entry])
     }
 
@@ -69,8 +69,9 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                             'picture':[songArray[0].album.images[0].url,songArray[0].external_urls.spotify],
                             "weather": Iconimage,
                             "hour" : hour_text,
-                            "weather_text": weather});
-        console.log(songArray[0].external_urls.spotify)
+                            "weather_text": weather,
+                            "artist": songArray[0].album.artists[0].name});
+        
     }
     
 
