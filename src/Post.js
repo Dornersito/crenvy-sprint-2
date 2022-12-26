@@ -75,14 +75,18 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
         
     }
 
+    let estado = "😎"
+
     const changeAnimo = event =>{
-        console.log(event)
+        estado = event.target.value;
+        //console.log("si entra")
+        //console.log(event.target.value)//recibe el valor dentro de la opcion
     }
 
     const [canciones,setCanciones] = useState([])
 
     const actualizarRank = () =>{
-        setCanciones(Ranking()); 
+        setCanciones(Ranking(estado)); 
     }
     
 
@@ -143,7 +147,7 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                         <div className='rankingTitle'>RANKING</div>
                         <div style={{marginTop:"5px"}}>
                             <button type='button' class='bn1' style={{margin:"5px"}} onClick={actualizarRank}>🔄</button>
-                            <select type='button' class='bn1'style={{margin:"5px"}}>
+                            <select type='button' class='bn1'style={{margin:"5px"}} onChange={changeAnimo}>
                                     <option>😎</option>
                                     <option>😔</option>
                                     <option>😐</option>

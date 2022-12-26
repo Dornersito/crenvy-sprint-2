@@ -1,18 +1,57 @@
 //import { useEffect, useState, React } from 'react';
 //import SongRanking from './songRanking'; 
 
-export default function Ranking() {
+export default function Ranking(estado) {
     //const [songs, setSongs] = useState([]);
+
+    let animo="";
+    if(estado=="😎"){
+        animo="Feliz"
+    }else if(estado=="😔"){
+        animo="Triste"
+    }else{
+        animo="Indiferente"
+    }
+
+    console.log("Este animo tiene el ranking")
+    console.log(animo)
+    //console.log(animo.length)
 
     const songs=[];
     for(var i=0, len=localStorage.length; i<len; i++) {
         var key = localStorage.key(i);
-        var value = (localStorage.getItem(key));
+        let valueString = (localStorage.getItem(key));
+        let valueObject = JSON.parse(valueString);//Convierte la cadena a un objeto usando JSON.parse
+        let valorActual = Object.values(valueObject);
         //console.log(key + " => " + value);
-        songs.push({
+
+        valorActual.forEach(element => {
+            let claves = Object.keys(element);//claves 
+            for(let j=0; j< claves.length; j++){
+                let clave = claves[j];
+                console.log("Aca prueba de likes")
+                console.log(clave)
+                //console.log(clave.length)
+                console.log(element[clave])
+                if(clave==animo){
+                    console.log("Se cumple")
+                    if(element[clave]!=="0"){
+                        songs.push({
+                            id: i,
+                            nombre: key,
+                            likes: element[clave]
+                        });
+                    }
+                }
+                //console.log(element[clave]);
+            }
+        })
+
+        /*songs.push({
+            id: i,
             nombre: key,
             likes: value,
-        });
+        });*/
 
         songs.sort(function(a, b){
             return b.likes - a.likes;

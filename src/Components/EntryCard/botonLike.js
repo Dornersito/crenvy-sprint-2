@@ -3,7 +3,7 @@ import LocalStorage from "../LocalStorage/localStorage";
 import Ranking from "../Ranking/ranking";
 
 
-export const Likes = (titulo) => {
+export const Likes = (cancion) => {
     
     const[like,setlike]= useState("")
 
@@ -15,11 +15,11 @@ export const Likes = (titulo) => {
         if(likeactive){//si like esta activo cuando se presiona pasa a estado dislike
             setlikeactive(false)
             setlike("")
-            LocalStorage(titulo,"-1")
+            LocalStorage(cancion,"-1")
         }else{
             setlikeactive(true)
             setlike("d❤")
-            LocalStorage(titulo,"+1")
+            LocalStorage(cancion,"+1")
         }
     }
 

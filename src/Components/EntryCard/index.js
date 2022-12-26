@@ -4,7 +4,7 @@ const EntryCard = props =>{
     //console.log(props);
     const {entryData} = props; //Toma los valores de props(obejeto con los datos)
     const {entryTitle, content, picture, animo, weather, hour, weather_text,artist} = entryData; //Le pasamos los valores desde entryData
-    console.log(entryData);
+    //console.log(entryData);
     return(
         <div className="blog-entry">
             <a href= {picture[1]} target="_blank" rel="noreferrer">
@@ -22,7 +22,7 @@ const EntryCard = props =>{
                     <div>{weather_text}</div>
                 </li>
                 <li>
-                    <Likes{...{content}}/>
+                    <Likes{...{content,animo}}/>
                 </li>
             </ul>
 
