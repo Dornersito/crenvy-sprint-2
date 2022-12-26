@@ -4,6 +4,7 @@ import EntryCard from './Components/EntryCard';
 import Select from 'react-select'
 import {useState,useEffect} from 'react';
 
+import Ranking from './Components/Ranking/ranking';
 
 const CLIENT_ID="b01669ce06464e06ad1afe9c395c7c15";
 const CLIENT_SECRET="c7e50afc03dc417ca2181cf3d81664ff";
@@ -73,11 +74,21 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                             "artist": songArray[0].album.artists[0].name});
         
     }
+
+    const changeAnimo = event =>{
+        console.log(event)
+    }
+
+    const [canciones,setCanciones] = useState([])
+
+    const actualizarRank = () =>{
+        setCanciones(Ranking()); 
+    }
     
 
     return (
         <div>
-            <div className="App">
+            <div className="left">
                 <div className='main-wrapper'>
                     <div className='Formulario'>
                         <form action=''>
@@ -126,6 +137,43 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
 
                     }
                     </div>
+                    
+                    <div className='right'>
+                    
+                        <div className='rankingTitle'>RANKING</div>
+                        <div style={{marginTop:"5px"}}>
+                            <button type='button' class='bn1' style={{margin:"5px"}} onClick={actualizarRank}>🔄</button>
+                            <select type='button' class='bn1'style={{margin:"5px"}}>
+                                    <option>😎</option>
+                                    <option>😔</option>
+                                    <option>😐</option>
+                            </select>
+                            <select type='button' class='bn1'style={{margin:"5px"}}>
+                                    <option>⛅</option>
+                                    <option>🌞</option>
+                                    <option>💧</option>
+                            </select>
+                        </div>
+                        
+                        
+
+                        <table style={{width:"260px"}}>
+                            <div className='SongLike' style={{marginTop: "30px", width:"100%", height:"100%"}}>
+                                    <div style={{marginLeft: "80px"}}>Canción</div>
+                                    <div style={{marginRight: "10px"}}>❤</div>
+                            </div>
+                            <div className='rankingBox' style={{width:"100%", height:"100%"}}>
+                                {canciones.map((item)=>(
+                                    <div className='songsRanking'>
+                                            <p className='izq'>{item.nombre}</p>
+                                            <p className='der'>{item.likes}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </table>
+                    </div>
+
+
                 </div>
             </div>
         </div>   

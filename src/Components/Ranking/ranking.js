@@ -33,9 +33,9 @@ export default function Ranking() {
     //const ranking = new SongRanking(songs)
     //ranking.render()
 
-    songs.map((item)=>{
+    /*songs.map((item)=>{
         //console.log(item.nombre)
-    })
+    })*/
 
     return(
         songs

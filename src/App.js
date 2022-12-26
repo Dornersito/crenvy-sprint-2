@@ -77,6 +77,7 @@ function App() {
         setIconImage(iconUrl);
 
       })
+      localStorage.clear();
     }
     
     function error(err) {
