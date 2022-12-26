@@ -157,7 +157,7 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                         
                         
 
-                        <table style={{width:"260px"}}>
+                        <div>
                             <div className='SongLike' style={{marginTop: "30px", width:"100%", height:"100%"}}>
                                     <div style={{marginLeft: "80px"}}>Canción</div>
                                     <div style={{marginRight: "10px"}}>❤</div>
@@ -170,7 +170,7 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                                     </div>
                                 ))}
                             </div>
-                        </table>
+                        </div>
                     </div>
 
 
