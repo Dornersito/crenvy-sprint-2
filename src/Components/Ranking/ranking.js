@@ -3,14 +3,20 @@
 
 export default function Ranking(estado) {
     //const [songs, setSongs] = useState([]);
+    console.log("ranking.js");
+    console.log(estado);
 
     let animo="";
     if(estado=="😎"){
         animo="Feliz"
     }else if(estado=="😔"){
         animo="Triste"
+    }else if(estado=="🙂"){
+        animo = "Relajado"
+    }else if(estado == "😡"){
+        animo="Enojado"
     }else{
-        animo="Indiferente"
+        animo = "Vacio"
     }
 
     console.log("Este animo tiene el ranking")
@@ -25,27 +31,41 @@ export default function Ranking(estado) {
         let valorActual = Object.values(valueObject);
         //console.log(key + " => " + value);
 
-        valorActual.forEach(element => {
-            let claves = Object.keys(element);//claves 
-            for(let j=0; j< claves.length; j++){
-                let clave = claves[j];
-                console.log("Aca prueba de likes")
-                console.log(clave)
-                //console.log(clave.length)
-                console.log(element[clave])
-                if(clave==animo){
-                    console.log("Se cumple")
-                    if(element[clave]!=="0"){
-                        songs.push({
-                            id: i,
-                            nombre: key,
-                            likes: element[clave]
-                        });
+        if(animo != "Vacio"){
+            valorActual.forEach(element => {
+                let claves = Object.keys(element);//claves 
+                for(let j=0; j< claves.length; j++){
+                    let clave = claves[j];
+                    console.log("Aca prueba de likes")
+                    console.log(clave)
+                    //console.log(clave.length)
+                    console.log(element[clave])
+                    if(clave==animo){
+                        console.log("Se cumple")
+                        if(element[clave]!=="0"){
+                            songs.push({
+                                id: i,
+                                nombre: key,
+                                likes: element[clave]
+                            });
+                        }
                     }
+
+                    //console.log(element[clave]);
                 }
-                //console.log(element[clave]);
-            }
-        })
+            })
+        }else{
+            valorActual.forEach(element => {
+                if(animo == "Vacio"){
+                    songs.push({
+                        id: i,
+                        nombre: key,
+                        likes: element["Total"]
+                    });
+                    
+                }
+            })
+        }
 
         /*songs.push({
             id: i,
@@ -101,3 +121,17 @@ export default function Ranking(estado) {
             </table>
         </div>
     )*/
+
+
+
+/*
+                if(animo == "Vacio"){
+                    if(element["Total"]!=="0"){
+                        songs.push({
+                            id: i,
+                            nombre: key,
+                            likes: element["Total"]
+                        });
+                    }
+                }
+                */

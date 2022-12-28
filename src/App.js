@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import axios from "axios";
 
+
 const API_endpoint = "https://api.openweathermap.org/data/2.5/weather?";
 const API_key = "885247edcfd01bf83861e339962c9756";
 
@@ -46,6 +47,8 @@ function App() {
   let days = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
   let dateText = `${days[day]} ${dayDate}/${month}`;
 
+
+
   let longitude;
   let latitude;
 
@@ -77,7 +80,7 @@ function App() {
         setIconImage(iconUrl);
 
       })
-      localStorage.clear();
+      //localStorage.clear();
     }
     
     function error(err) {
@@ -92,7 +95,7 @@ function App() {
 
   console.log(weather)
   return(
-    <div>
+    <div className={weather}>
       {loading ?
         (
         <div className="Loading">

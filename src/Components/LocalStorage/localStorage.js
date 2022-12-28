@@ -9,17 +9,22 @@ function LocalStorage(cancion,value){
     let titulo=cancion.content;//obtenemos el titulo de la cancion
     let estado=cancion.animo;//obtenemos el animo
 
-    //console.log("ESTAMOS EN LOCAL STORAGE")
-    //console.log(estado)
+    // console.log("ESTAMOS EN LOCAL STORAGE")
+    // console.log(estado)
 
-    let animo=""
-    if(estado==="Feliz 😎"){
+    let animo="";
+    if(estado=="Feliz 😎"){
         animo="Feliz"
-    }else if(estado==="Triste 😔"){
+    }else if(estado=="Triste 😔"){
         animo="Triste"
-    }else{
-        animo="Indiferente"
+    }else if(estado=="Relajado 🙂"){
+        animo = "Relajado"
+    }else if(estado == "Enojado 😡"){
+        animo="Enojado"
     }
+
+    console.log("ESTAMOS EN LOCAL STORAGE")
+    console.log(estado)
 
     //console.log("Aca el animo")
     //console.log(animo)
@@ -30,20 +35,35 @@ function LocalStorage(cancion,value){
             filtros.push({
                 Feliz:"1",
                 Triste:"0",
-                Indiferente:"0"
+                Relajado:"0",
+                Enojado:"0",
+                Total:"1"
             })
         }else if(animo=="Triste"){
             filtros.push({
                 Feliz:"0",
                 Triste:"1",
-                Indiferente:"0"
+                Relajado:"0",
+                Enojado:"0",
+                Total:"1"
             })
-        }else{
+        }else if(animo=="Relajado"){
             filtros.push({
                 Feliz:"0",
                 Triste:"0",
-                Indiferente:"1"
+                Relajado:"1",
+                Enojado:"0",
+                Total:"1"
             })
+        }
+        else if(animo=="Enojado"){
+            filtros.push({
+                Feliz:"0",
+                Triste:"0",
+                Relajado:"0",
+                Enojado:"1",
+                Total:"1"
+            })  
         }
         const arrayString = JSON.stringify(filtros);
         localStorage.setItem(titulo,arrayString)//yo del futuro no esta comparando animo ademas creo que no guarda el value bien revisa doc de localStorage
@@ -58,13 +78,19 @@ function LocalStorage(cancion,value){
             let claves = Object.keys(element);//claves 
             for(let i=0; i< claves.length; i++){
                 let clave = claves[i];
+                console.log(clave);
                 if(claves[i]==animo){
                     if(value=="+1"){
                         let nuevoVal = parseInt(element[clave])+1;
                         element[clave]=nuevoVal.toString();
-                    }else{
+                        let total = parseInt(element["Total"])+1;
+                        element["Total"]= total.toString();
+                    }
+                    else{
                         let nuevoVal = parseInt(element[clave])-1;
                         element[clave]=nuevoVal.toString();
+                        let total = parseInt(element["Total"])-1;
+                        element["Total"]= total.toString();
                     }
                 }
                 //console.log(element[clave]);

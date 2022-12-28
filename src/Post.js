@@ -75,12 +75,13 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
         
     }
 
-    let estado = "😎"
+    let estado = "Vacio";
 
     const changeAnimo = event =>{
         estado = event.target.value;
         //console.log("si entra")
         //console.log(event.target.value)//recibe el valor dentro de la opcion
+        estado = event.target.value;
     }
 
     const [canciones,setCanciones] = useState([])
@@ -121,7 +122,8 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                                     <option></option>
                                     <option>Feliz 😎</option>
                                     <option>Triste 😔</option>
-                                    <option>Indiferente 😐</option>
+                                    <option>Relajado 🙂</option>
+                                    <option>Enojado 😡</option>
                                 </select>
                             </div>
                         </form>
@@ -148,11 +150,14 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                         <div style={{marginTop:"5px"}}>
                             <button type='button' class='bn1' style={{margin:"5px"}} onClick={actualizarRank}>🔄</button>
                             <select type='button' class='bn1'style={{margin:"5px"}} onChange={changeAnimo}>
+                                    <option></option>
                                     <option>😎</option>
                                     <option>😔</option>
-                                    <option>😐</option>
+                                    <option>🙂</option>
+                                    <option>😡</option>
                             </select>
                             <select type='button' class='bn1'style={{margin:"5px"}}>
+                                    <option></option>
                                     <option>⛅</option>
                                     <option>🌞</option>
                                     <option>💧</option>
@@ -166,7 +171,7 @@ export default function Post({songs, setSongs, Iconimage, hour_text, weather}){
                                     <div style={{marginLeft: "80px"}}>Canción</div>
                                     <div style={{marginRight: "10px"}}>❤</div>
                             </div>
-                            <div className='rankingBox' style={{width:"100%", height:"100%"}}>
+                            <div className='rankingBox'>
                                 {canciones.map((item)=>(
                                     <div className='songsRanking'>
                                             <p className='izq'>{item.nombre}</p>
